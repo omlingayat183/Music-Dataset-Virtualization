@@ -51,7 +51,8 @@ class DeezerApiService {
 
         final rawData = decoded['data'];
         if (rawData is! List) {
-          return const <Track>[];
+          lastError = Exception('Missing Deezer data list');
+          continue;
         }
 
         return rawData
